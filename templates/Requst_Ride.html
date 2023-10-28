@@ -1,0 +1,36 @@
+{% extends "layout.html" %}
+{% block content %}
+<section class="get-in-touch">
+    <h1 class="title">Request Ride</h1>
+    <form class="contact-form row" action="/Requst_Ride" method="post">
+        <div class="form-field col-lg-6">
+            <input class="input-text js-input" type="text" id="pickup" name="pickup" required>
+            <label class="label" for="pickup">Pickup Location:</label>
+        </div>
+        <div class="form-field col-lg-6">
+            <input class="input-text js-input" type="text" id="dropoff" name="dropoff" value="{{ dropoff }}" required>
+            <label class="label" for="dropoff">Drop-off Location:</label>
+        </div>
+        <div class="form-field col-lg-6">
+            <input class="input-text js-input" type="datetime-local" id="datetime" name="datetime" required>
+            <label class="label" for="datetime"></label>
+        </div>
+        <div class="form-field col-lg-6">
+            <input class="input-text js-input" type="number" id="passengers" name="passengers" required>
+            <label class="label" for="passengers">Number of Passengers:</label>
+        </div>
+        <div class="form-field col-lg-12">
+            <textarea class="input-text js-input" id="comments" name="comments">{{ comments }}</textarea>
+            <label class="label" for="comments">Special Requests or Comments:</label>
+        </div>
+        
+        <div class="form-field col-lg-12">
+            <input class="submit-btn" type="submit" value="Submit">
+            <input class="reset-btn" type="reset" value="Reset">
+        </div>
+    </form>
+</section>
+
+
+
+{% endblock %}

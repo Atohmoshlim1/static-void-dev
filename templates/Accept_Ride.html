@@ -1,0 +1,56 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container">
+    <ul class="timeline">
+       {% for ride in rides %}
+       <li>
+          <!-- begin timeline-time -->
+          <div class="timeline-time">
+             <span class="date">Today</span>
+             <span class="time">{{ ride.time }}</span>
+          </div>
+          <!-- end timeline-time -->
+          <!-- begin timeline-icon -->
+          <div class="timeline-icon">
+             <a href="javascript:;">&nbsp;</a>
+          </div>
+          <!-- end timeline-icon -->
+          <!-- begin timeline-body -->
+          <div class="timeline-body">
+             <div class="timeline-header">
+                <div class="user-ride-info">
+                   <div class="user-info">
+                      <span class="userimage"><img src="user_image_url" alt=""></span>
+                      <span class="username">{{ ride.user_name }}</span>
+                   </div>
+                   <div class="ride-info">
+                      <span class="ride-id">{{ ride.id }}</span>
+                   </div>
+                </div>
+             </div>
+             <div class="timeline-content">
+                <h4 class="template-title">
+                   <i class="fa fa-map-marker text-danger fa-fw"></i>
+                   {{ ride.event_name }}
+                </h4>
+                <p>From: {{ ride.from_location }}</p>
+                <p>To: {{ ride.to_location }}</p>
+             </div>
+             <div class="timeline-footer">
+                <div class="action-buttons">
+                   <a href="/Accept_Ride?ride_id={{ ride.id }}" class="accept-button">
+                      <i class="fa fa-check-circle fa-fw fa-lg m-r-3"></i> Accept
+                   </a>
+                   <div class="report-button" data-ride-id="{{ ride.id }}">
+                      <i class="fa fa-flag fa-fw fa-lg m-r-3"></i> Report
+                   </div>
+                </div>
+             </div>
+          </div>
+          <!-- end timeline-body -->
+       </li>
+       {% endfor %}
+    </ul>
+ </div>
+ 
+{% endblock %}

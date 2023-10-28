@@ -1,0 +1,79 @@
+<nav class="navbar navbar-expand-lg navbar-dark shadow-lg" style="background: linear-gradient(to right, #f4524d 0%, #5543ca 100%) !important; ">
+
+    <div class="container-fluid">
+      <a class="navbar-brand fw-bold" href="{{'#'}}">SV RideShare</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="/">
+                <span class="fas fa-home"></span> Home
+            </a>
+        </li>
+        
+      
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="fas fa-car"></span> Rideshare
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{'/Events'}}">Events</a></li>
+              <li><a class="dropdown-item" href="{{'/Post'}}">Post</a></li>
+              <li>
+                <hr class="dropdown-divider">
+                <li><a class="dropdown-item" href="{{'/Requst_Ride'}}">Requst Ride</a></li>
+                <li><a class="dropdown-item" href="{{'/Accept_Ride'}}">Accept Ride</a></li> 
+              </li></ul>
+              
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              <span class="fas fa-layer-group"></span> Dashboard
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="{{'/RRH'}}">Requst Ride History</a></li>
+              <li><a class="dropdown-item" href="{{'/ARH'}}">Accept Ride History</a></li>
+              <li><a class="dropdown-item" href="{{'/EH'}}">Events History</a></li>
+            </ul>
+          
+          <li class="nav-item">
+            <a class="nav-link" href="{{'/About_us'}}"><span class="fas fa-users"></span> Our Team</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{'/contact_us'}}"><span class="fas fa-headset"></span> Contact Us</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{'/Analysis'}}"><span class="fas fa-chart-line"></span> Analysis</a>
+          </li>
+          <!-- <li class="nav-item">
+            <a class="nav-link" href="{{'/Profile'}}"><span class="fas fa-user"></span> Profile</a>
+          </li> -->
+          
+            <li class="nav-item">
+              <a class="nav-link" href="{{'/SISU'}}"><span class="fas fa-chart-line"></span> Sign in/ Sign</a>
+            </li>
+            <li class="nav-item dropdown">
+              <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                <span class="fas fa-layer-group"></span> settings
+              </a>
+              <ul class="dropdown-menu">
+                <li><a class="dropdown-item" href="{{'/Profile'}}">Profile</a></li>
+                <li><a class="dropdown-item" href="{{'/UpdateProfile'}}">Update Profile</a></li>
+                <li><a class="dropdown-item" href="{{'/SignOut'}}" onclick="logout()">Sign Out</a></li>
+              </ul>
+
+
+
+
+            
+        </li>
+        </ul>
+        <!-- <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-light" type="submit">Search</button>
+        </form> -->
+      </div>
+    </div>
+</nav>

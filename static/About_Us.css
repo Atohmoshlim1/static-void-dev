@@ -1,0 +1,29 @@
+.AS {
+    background: #e8cbc0;
+    background: -webkit-linear-gradient(to right, #cc6c49, #5f31ca);
+    background: linear-gradient(to right, #cc6c49, #5f31ca);
+    min-height: 100vh;
+}
+.card {
+    background: linear-gradient(to right, #cc6c49, #5f31ca);
+    box-shadow: rgba(8, 43, 243, 0.25)x 50px 100px -20px, rgba(8, 43, 243, 0.25) 0px 30px 60px -30px, rgba(8, 43, 243, 0.25) 0px -2px 6px 0px inset;   
+     color: white; /* Optionally, set text color to white for better contrast */
+}
+.social-link {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #666;
+    border-radius: 50%;
+    transition: all 0.3s;
+    font-size: 0.9rem;
+}
+
+.social-link:hover, .social-link:focus {
+    background: #ddd;
+    text-decoration: none;
+    color: #555;
+}

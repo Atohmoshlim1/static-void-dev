@@ -1,0 +1,149 @@
+{% extends "layout.html" %}
+{% block content %}
+<div class="container-xl px-4 mt-4">
+    <!-- Account page navigation-->
+    
+    <hr class="mt-0 mb-4">
+    <div class="row">
+        <div class="col-xl-4">
+            <!-- Profile picture card-->
+            <div class="card mb-4 mb-xl-0">
+                <div class="card-header">Profile Picture</div>
+                <div class="card-body text-center">
+                    <!-- Profile picture image-->
+                    <img class="img-account-profile rounded-circle mb-2" src="http://bootdey.com/img/Content/avatar/avatar1.png" alt="">
+                    <!-- Profile picture help block-->
+                    <div class="small font-italic text-muted mb-4">JPG or PNG no larger than 5 MB</div>
+                    <!-- Profile picture upload button-->
+                    <input type="file" id="fileInput" accept="image/jpeg, image/png" style="display: none;">
+                    <label for="fileInput" class="btn btn-primary">Upload new image</label>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-8">
+            <!-- Account details card-->
+            <div class="card mb-4">
+                <div class="card-header">Account Details</div>
+                <div class="card-body">
+                    <form method="POST" action="/UpdateProfile">
+                        <!-- Form Group (username)-->
+                        <div class="mb-3">
+                            <label class="small mb-1" for="inputUsername">E-mail (how your name will appear to other users on the site)</label>
+                            <input class="form-control" id="inputUsername" type="text" placeholder="Enter your username">
+                        </div>
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (first name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputFirstName">First name</label>
+                                <input class="form-control" id="inputFirstName" type="text" placeholder="Enter your first name" >
+                            </div>
+                            <!-- Form Group (last name)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputLastName">Last name</label>
+                                <input class="form-control" id="inputLastName" type="text" placeholder="Enter your last name" >
+                            </div>
+                        </div>
+                        
+                        <!-- Form Row-->
+                        <div class="row gx-3 mb-3">
+                            <!-- Form Group (phone number)-->
+                            <div class="col-md-6">
+                                <label class="small mb-1" for="inputPhone">Phone number</label>
+                                <input class="form-control" id="inputPhone" type="tel" placeholder="Enter your phone number">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label class="small mb-1">Do you have a car?</label>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="hasCar" id="carYes" value="yes">
+                                <label class="form-check-label" for="carYes">Yes</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                                <input class="form-check-input" type="radio" name="hasCar" id="carNo" value="no">
+                                <label class="form-check-label" for="carNo">No</label>
+                            </div>
+                        </div>
+                        
+                        <div id="carDetails" style="display: none;">
+                            <div class="mb-3">
+                                <label class="small mb-1" for="inputLicNumber">License Number</label>
+                                <input class="form-control" id="inputLicNumber" type="text" placeholder="Enter your license number">
+                            </div>
+                            <div class="row gx-3 mb-3">
+                                <div class="col-md-4">
+                                    <label class="small mb-1" for="inputCarMake">Car Make</label>
+                                    <input class="form-control" id="inputCarMake" type="text" placeholder="Enter car make">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="small mb-1" for="inputCarModel">Car Model</label>
+                                    <input class="form-control" id="inputCarModel" type="text" placeholder="Enter car model">
+                                </div>
+                                <div class="col-md-4">
+                                    <label class="small mb-1" for="inputCarYear">Car Year</label>
+                                    <input class="form-control" id="inputCarYear" type="text" placeholder="Enter car year">
+                                </div>
+                            </div>
+                            <div class="row gx-3 mb-3">
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputCarColor">Car Color</label>
+                                    <input class="form-control" id="inputCarColor" type="text" placeholder="Enter car color">
+                                </div>
+                                <div class="col-md-6">
+                                    <label class="small mb-1" for="inputCarPlate">Car Plate Number</label>
+                                    <input class="form-control" id="inputCarPlate" type="text" placeholder="Enter car plate number">
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Save changes button-->
+                        <button class="btn btn-primary" type="button">Save changes</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    const carRadioYes = document.getElementById('carYes');
+    const carRadioNo = document.getElementById('carNo');
+    const carDetails = document.getElementById('carDetails');
+
+    carRadioYes.addEventListener('change', function () {
+        if (carRadioYes.checked) {
+            carDetails.style.display = 'block';
+        } else {
+            carDetails.style.display = 'none';
+        }
+    });
+
+    carRadioNo.addEventListener('change', function () {
+        if (carRadioNo.checked) {
+            carDetails.style.display = 'none';
+        }
+    });
+    document.getElementById('fileInput').addEventListener('change', function (e) {
+        const file = e.target.files[0];
+        if (file) {
+            if (file.size > 5 * 1024 * 1024) {
+                alert('File size exceeds 5 MB limit.');
+                return;
+            }
+
+            if (file.type !== 'image/jpeg' && file.type !== 'image/png') {
+                alert('Please select a JPG or PNG image.');
+                return;
+            }
+
+            const reader = new FileReader();
+
+            reader.onload = function (event) {
+                const imageUrl = event.target.result;
+                document.getElementById('profile-image').src = imageUrl;
+            };
+
+            reader.readAsDataURL(file);
+        }
+    });
+</script>
+
+{% endblock %}
